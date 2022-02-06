@@ -1,28 +1,45 @@
 import * as React from "react";
-import { Frame, Tab, Tabs, TaskBar, List, TitleBar } from "@react95/core";
+import { Frame, Tab, Tabs } from "@react95/core";
 import "@react95/icons/icons.css";
 import JobTab from "../components/JobTab";
-import { FileIcons } from "@react95/icons";
-import NavBar from "../components/Navbar";
-
-const pageStyles = {
-  color: "#232129",
-  backgroundColor: "#6fc9b0",
-  padding: 30,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-};
+import PageTitle from "../components/PageTitle";
+import Layout from "../components/layout";
 
 const tabs = [
   {
-    tabTitle: "House Happy",
-    jobTitle: "",
-    tools: "",
+    company: "House Happy",
+    title: "Software Engineer",
+    tools: "Elixir, Phoenix, Ecto, React, React Native",
     resps: "",
   },
   {
-    tabTitle: "PlusQa",
-    jobTitle: "",
-    tools: "",
+    company: "PlusQa",
+    title: "Lead Software Developer",
+    tools: "Ruby, Rails, Active Record, React, React Native",
+    resps: "",
+  },
+  {
+    company: "Ride With GPS",
+    title: "Intern",
+    tools: "Ruby, Rails, Backbone.js",
+    resps: "",
+  },
+  {
+    company: "Cleveland Museum of Art",
+    title: "Art Handler",
+    tools: "Hammer, Level, Drill, Hanging stick",
+    resps: "",
+  },
+  {
+    company: "Akron Art Museum",
+    title: "Building Services/Art Preparator",
+    tools: "Broom, Mop, Sometimes hammer/level/drill",
+    resps: "",
+  },
+  {
+    company: "Eddy's Bike Shop",
+    title: "Sales",
+    tools: "Knowledge, Patience, Charisma",
     resps: "",
   },
 ];
@@ -30,28 +47,16 @@ const tabs = [
 // markup
 const ExperiencePage = () => {
   return (
-    <main style={pageStyles}>
-      <title>Home Page</title>
+    <Layout>
       <div>
-        <TitleBar
-          active
-          icon={<FileIcons variant="32x32_4" />}
-          title="Dale Palmer Jr - Experience"
-          className="draggable"
-          width={"100%"}
-        >
-          <TitleBar.OptionsBox>
-            <TitleBar.Option>?</TitleBar.Option>
-            <TitleBar.Option>X</TitleBar.Option>
-          </TitleBar.OptionsBox>
-        </TitleBar>
-        <Frame width={"100%"} height={500} padding={4}>
+        <PageTitle title="Dale Palmer Jr - Experience" />
+        <Frame data-hide="me" width={"100%"} height={500} padding={4}>
           <Frame height="100%" boxShadow="in" bg="rgb(195, 199, 203)">
             <Tabs style={{ width: 500 }} defaultActiveTab="House Happy">
               {tabs.map((tab, index) => {
                 return (
-                  <Tab key={index} title={tab.tabTitle}>
-                    <JobTab props={tab} />
+                  <Tab key={index} title={tab.company}>
+                    <JobTab job={tab} />
                   </Tab>
                 );
               })}
@@ -59,8 +64,7 @@ const ExperiencePage = () => {
           </Frame>
         </Frame>
       </div>
-      <NavBar />
-    </main>
+    </Layout>
   );
 };
 

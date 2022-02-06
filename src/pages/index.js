@@ -1,26 +1,15 @@
 import * as React from "react"
-import { Avatar, Frame} from "@react95/core"
-import { Issue } from "@react95/icons"
+import { Avatar, Frame } from "@react95/core"
+import { Issue, Msnstart100, Mspaint, Drvspace7, Regedit102 } from "@react95/icons"
 import styled from 'styled-components'
 import '@react95/icons/icons.css'
 import { navigate } from "gatsby"
-
-const pageStyles = {
-  color: "#232129",
-  backgroundColor: "#6fc9b0",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
+import Layout from "../components/layout"
 
 const IconContainer = styled.a`
   display: inline-flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 1.66em;
   justify-content: center;
   align-items: center;
   min-width: 150px;
@@ -50,13 +39,6 @@ const IconContainer = styled.a`
     }
   }
 `
-
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
 const linksContainer = {
   display: 'grid',
   gridTemplateColumns: "33% 33% 33%",
@@ -68,34 +50,15 @@ const listItemStyles = {
   justifyContent: "center"
 }
 
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
-
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
-
 const descriptionContainer = {
   display: 'flex'
-}
-
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
 }
 
 const divider = {
   backgroundColor: "black",
   height: "1px",
   width: "100%",
-  margin: "20px 0"
+  margin: "1.66em 0"
 }
 
 // data
@@ -106,6 +69,7 @@ const links = [
     description:
       "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
     color: "#E95800",
+    icon: <Regedit102 variant="32x32_4"/>
   },
   {
     text: "About",
@@ -113,6 +77,7 @@ const links = [
     description:
       "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
     color: "#1099A8",
+    icon: <Drvspace7 variant="32x32_4"/>
   },
   {
     text: "Education",
@@ -120,13 +85,7 @@ const links = [
     description:
       "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
     color: "#BC027F",
-  },
-  {
-    text: "Interests",
-    url: "/interests",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
+    icon: <Msnstart100 variant="32x32_4"/>
   },
   {
     text: "Hobbies",
@@ -134,6 +93,7 @@ const links = [
     description:
       "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
     color: "#8EB814",
+    icon: <Mspaint variant="32x32_4"/>
   },
   {
     text: "Blog",
@@ -142,13 +102,14 @@ const links = [
     description:
       "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
     color: "#663399",
+    icon: <Issue variant="32x32_4"/>
   },
 ]
 
 // markup
 const IndexPage = () => {
   return (
-    <main style={pageStyles}>
+      <Layout>
       <title>Home Page</title>
       <div>
         <div>
@@ -159,7 +120,7 @@ const IndexPage = () => {
                 <h3>Feel free to look around and learn about my life</h3>
               </div>
               <div style={{marginLeft: "auto"}}>
-                <Avatar size="200" src="https://avatars.githubusercontent.com/u/10335928?v=4" alt="photo" />
+                <Avatar size="8em" src="https://avatars.githubusercontent.com/u/10335928?v=4" alt="photo" />
               </div>
           </Frame>
           <div style={divider}></div>
@@ -168,8 +129,8 @@ const IndexPage = () => {
                 {links.map((link, index) => { return (
                   <div key={index} style={listItemStyles}>
                       <IconContainer onClick={()=>{navigate(link.url)}}>
-                        <p style={{cursor: "pointer", fontSize: 18}}>{link.text}</p>
-                        <Issue variant="32x32_4"/>
+                        <p style={{cursor: "pointer", fontSize: "1.5em"}}>{link.text}</p>
+                        {link.icon}
                       </IconContainer>
                    
                   </div>
@@ -178,7 +139,7 @@ const IndexPage = () => {
             </Frame>
         </div>
       </div>
-    </main>
+    </Layout>
   )
 }
 

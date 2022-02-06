@@ -54,16 +54,7 @@ const AboutPage = () => {
   </TitleBar>
         <Frame width={"100%"} height={500} padding={4}>
           <Frame height="100%" boxShadow="in" bg="rgb(195, 199, 203)">
-            <Tabs style={{ width: 500 }} defaultActiveTab="House Happy">
-              { tabs.map((tab, index) => { 
-                return (
-                  <Tab title={tab.tabTitle}>
-                    <JobTab props={tab} />
-                  </Tab>
-                )
-                })
-              }
-            </Tabs>
+            Under Construction
           </Frame>
         </Frame>
       </div>

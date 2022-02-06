@@ -1,4 +1,5 @@
 module.exports = {
+    pathPrefix: "/gatsby-dale",
     siteMetadata: {
         siteUrl: `https://dalepalmer.dev`,
     },
